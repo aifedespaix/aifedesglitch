@@ -9,16 +9,10 @@
         My transcendent Nuxt.js project
       </h2>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+        <article v-for="article in articles">
+          <h2>{{ article.title }}</h2>
+          <div>{{ article.content }}</div>
+        </article>
       </div>
     </div>
   </div>
@@ -30,6 +24,14 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  computed: {
+    articles() {
+      return this.$store.state.articles.articles
+    }
+  },
+  async fetch({ store, params }) {
+    await store.dispatch('articles/load')
   }
 }
 </script>
