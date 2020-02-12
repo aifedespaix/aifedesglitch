@@ -33,8 +33,15 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify'
   ],
+  vuetify: {
+    font: {
+      family: 'Roboto'
+    }
+    // icons: 'mdi'
+  },
   /*
    ** Nuxt.js modules
    */

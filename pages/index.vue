@@ -6,7 +6,7 @@
         fdg-app
       </h1>
       <h2 class="subtitle">
-        My transcendent Nuxt.js project
+        <v-icon>mdi-home</v-icon>
       </h2>
       <div class="links">
         <article v-for="article in articles">
