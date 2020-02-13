@@ -1,30 +1,54 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        fdg-app
-      </h1>
-      <h2 class="subtitle">
-        <v-icon>mdi-home</v-icon>
-      </h2>
-      <div class="links">
-        <article v-for="article in articles">
-          <h2>{{ article.title }}</h2>
-          <div>{{ article.content }}</div>
-        </article>
-      </div>
-    </div>
-  </div>
+  <!--          <div v-html="$md.render(article.content)"></div>-->
+  <v-container fluid>
+    <v-row dense>
+      <v-col cols="12">
+        <v-row>
+          <h1 class="title">
+            aifedesglitch
+          </h1>
+        </v-row>
+        <v-row dense>
+          <v-col
+            v-for="article in articles"
+            :key="article.title"
+            :cols="article.flex"
+          >
+            <v-card>
+              <v-img
+                :src="article.src"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
+              >
+                <v-card-title v-text="article.title"></v-card-title>
+              </v-img>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+
+                <v-btn icon>
+                  <v-icon>mdi-heart</v-icon>
+                </v-btn>
+
+                <v-btn icon>
+                  <v-icon>mdi-bookmark</v-icon>
+                </v-btn>
+
+                <v-btn icon>
+                  <v-icon>mdi-share-variant</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
-  },
   computed: {
     articles() {
       return this.$store.state.articles.articles
@@ -32,6 +56,7 @@ export default {
   },
   async fetch({ store, params }) {
     await store.dispatch('articles/load')
+    await store.dispatch('category/load')
   }
 }
 </script>

@@ -1,10 +1,15 @@
 <template>
-  <v-app-bar :clipped-left="clipped" app>
-    <v-app-bar-nav-icon v-if="type !== 'permanent'" @click.stop="switchNav()" />
+  <v-app-bar
+    :bottom="!isLargeScreen"
+    :clipped-left="isLargeScreen"
+    :clipped-right="!isLargeScreen"
+    app
+  >
+    <v-app-bar-nav-icon @click.stop="switchNav()" v-if="!isLargeScreen" />
     <Logo />
     <v-toolbar-title>aifedesglitch</v-toolbar-title>
     <v-spacer />
-    <v-switch v-model="$vuetify.theme.dark" primary label="Dark" />
+    <v-switch v-model="$vuetify.theme.dark" label="Sombre" primary />
   </v-app-bar>
 </template>
 
@@ -15,17 +20,14 @@ export default {
   components: {
     Logo
   },
-  data: () => ({
-    model: null,
-    type: 'default (no property)',
-    clipped: false,
-    floating: false,
-    mini: false,
-    inset: false
-  }),
+  computed: {
+    isLargeScreen() {
+      return this.$store.state.layout.isLargeScreen
+    }
+  },
   methods: {
     switchNav() {
-      this.$store.commit('layout/SET_MODEL', true)
+      this.$store.dispatch('layout/switchNav')
     }
   }
 }

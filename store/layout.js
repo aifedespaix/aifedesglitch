@@ -1,18 +1,19 @@
 export const state = () => ({
-  menu: {
-    permanent: false,
-    model: false
-  }
+  isLargeScreen: false,
+  nav: false
 })
 
 export const actions = {
-  switchMenu({ commit }) {
-    commit('SET_MODEL', true)
+  switchNav({ commit, state }) {
+    commit('SET_NAV', !state.nav)
   }
 }
 
 export const mutations = {
-  SET_MODEL(state, model) {
-    state.menu.permanent = model
+  SET_NAV(state, nav) {
+    state.nav = nav
+  },
+  SET_LARGE_SCREEN(state, isLargeScreen) {
+    state.isLargeScreen = isLargeScreen
   }
 }

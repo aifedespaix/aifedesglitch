@@ -1,8 +1,8 @@
 {
-  "name": "fdg-app",
+  "name": "aifedesglitch",
   "version": "1.0.0",
-  "description": "My transcendent Nuxt.js project",
-  "author": "aifedespaix",
+  "description": "aifedesglitch tous les meilleurs glitchs expliqués en Français",
+  "author": "aife",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -25,6 +25,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/markdownit": "^1.2.7",
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0"
   },

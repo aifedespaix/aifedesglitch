@@ -13,26 +13,36 @@
       </v-container>
     </v-content>
 
-    <v-footer :inset="false" app>
-      <span class="px-4"
-        >&copy; aifedesglitch - 2019 / {{ new Date().getFullYear() }}</span
-      >
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import Nav from '~/components/Nav.vue'
 import AppBar from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
     AppBar,
-    Nav
+    Nav,
+    Footer
   },
   data: () => ({
     drawers: ['Default (no property)', 'Permanent', 'Temporary']
-  })
+  }),
+  mounted() {
+    this.onResize()
+    window.addEventListener('resize', this.onResize, { passive: true })
+  },
+  methods: {
+    onResize() {
+      this.$store.commit(
+        'layout/SET_LARGE_SCREEN',
+        window.innerWidth > window.innerHeight
+      )
+    }
+  }
 }
 </script>
 

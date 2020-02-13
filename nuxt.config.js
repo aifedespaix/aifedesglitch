@@ -34,8 +34,12 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    injected: true
+  },
   vuetify: {
     font: {
       family: 'Roboto'
@@ -52,6 +56,11 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
+  pwa: {
+    meta: {
+      /* meta options */
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
