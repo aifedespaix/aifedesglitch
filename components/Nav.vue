@@ -4,13 +4,13 @@
     :right="!isLargeScreen"
     v-model="nav"
     app
-    fixed
     clipped
+    fixed
   >
     <v-list dense>
       <v-list-item
-        :to="item.route"
         :key="item.title"
+        :to="item.route"
         @click=""
         v-for="item in items"
         router
@@ -24,9 +24,12 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-list-item v-for="category in categories" :key="category.name">
+      <v-list-item
+        :key="category.name"
+        :to="categoryRoute(category.page.id, category.page.slug)"
+        v-for="category in categories"
+      >
         <v-list-item-title>{{ category.name }}</v-list-item-title>
-        <div v-html="category.icon"></div>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -58,6 +61,11 @@ export default {
     },
     categories() {
       return this.$store.state.category.categories
+    }
+  },
+  methods: {
+    categoryRoute(id, slug) {
+      return `${slug}/${id}`
     }
   }
 }

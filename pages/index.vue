@@ -53,10 +53,6 @@ export default {
     articles() {
       return this.$store.state.articles.articles
     }
-  },
-  async fetch({ store, params }) {
-    await store.dispatch('articles/load')
-    await store.dispatch('category/load')
   }
 }
 </script>
