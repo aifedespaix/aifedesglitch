@@ -9,7 +9,28 @@
     <Logo />
     <v-toolbar-title>aifedesglitch</v-toolbar-title>
     <v-spacer />
-    <v-switch v-model="$vuetify.theme.dark" label="Sombre" primary />
+
+    <v-menu transition="slide-y-transition">
+      <template v-slot:activator="{ on: menu }">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on: tooltip }">
+            <v-btn v-on="{ ...tooltip, ...menu }" icon>
+              <v-icon>mdi-cogs</v-icon>
+            </v-btn>
+          </template>
+          <span>Paramètres</span>
+        </v-tooltip>
+      </template>
+      <v-list>
+        <v-list-item>
+          <v-switch
+            v-model="$vuetify.theme.dark"
+            label="Theme Sombre"
+            primary
+          />
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </v-app-bar>
 </template>
 

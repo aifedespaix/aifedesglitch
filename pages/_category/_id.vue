@@ -2,14 +2,22 @@
   <v-container v-if="category" fluid class="ma-0 pa-0">
     <v-row class="ma-0 pa-0">
       <v-col class="ma-0 pa-0">
-        <v-parallax :src="category.page.banner.url | fdgApiUrl"></v-parallax>
+        <v-parallax :src="category.page.banner.url | fdgApiUrl">
+          <v-row align="center" justify="center">
+            <v-col class="text-center" cols="12">
+              <h1
+                class="display-3 font-weight-thin mb-4 grey--text text--darken-4"
+              >
+                {{ category.name }}
+              </h1>
+            </v-col>
+          </v-row>
+        </v-parallax>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col>
-        <h1>{{ category.title }}</h1>
-      </v-col>
-    </v-row>
+    <v-container>
+      <h2>Tous les Glitchs de {{ category.name }}</h2>
+    </v-container>
     <v-flex v-for="glitch in glitches" :key="glitch._id" xs12 sm6 lg4 pa-2>
       <ArticleCard :glitch="glitch" />
     </v-flex>

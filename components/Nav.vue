@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     categoryRoute(id, slug) {
-      return `${slug}/${id}`
+      return `/${slug}/${id}`
     }
   }
 }

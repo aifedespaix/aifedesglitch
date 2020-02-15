@@ -25,13 +25,10 @@ export default {
   data: () => ({
     drawers: ['Default (no property)', 'Permanent', 'Temporary']
   }),
-  async fetch({ store, params }) {
-    await store.dispatch('articles/load')
-    await store.dispatch('category/load')
-  },
   mounted() {
     this.onResize()
     window.addEventListener('resize', this.onResize, { passive: true })
+    this.$store.dispatch('category/load')
   },
   methods: {
     onResize() {
