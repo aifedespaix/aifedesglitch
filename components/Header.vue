@@ -7,7 +7,6 @@
   >
     <v-app-bar-nav-icon @click.stop="switchNav()" v-if="!isLargeScreen" />
     <Logo />
-    <v-toolbar-title>aifedesglitch</v-toolbar-title>
     <v-spacer />
 
     <v-menu transition="slide-y-transition">
