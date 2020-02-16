@@ -12,16 +12,14 @@ export default {
         return data
       }
 
-      const test = [
+      return [].concat(
         (await load(`https://aifedesglitch.aifedespaix.com/glitches`)).map(
           (g) => `/${g.category.page.slug}/${g.page.slug}/${g.id}`
         ),
         (await load(`https://aifedesglitch.aifedespaix.com/categories`)).map(
           (c) => `/${c.page.slug}/${c.id}`
         )
-      ]
-      console.log(test)
-      return test
+      )
     }
   },
   head: {
