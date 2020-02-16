@@ -1,0 +1,9 @@
+
+.fdgImage {
+  background: rgb(27, 64, 145);
+  background: linear-gradient(
+    149deg,
+    rgba(27, 64, 145, 1) 0%,
+    rgba(2, 143, 76, 1) 100%
+  );
+}

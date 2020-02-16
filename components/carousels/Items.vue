@@ -5,18 +5,22 @@
       :hide-delimiters="sortedItems.length === 1"
       :show-arrows="sortedItems.length > 1"
     >
-      <v-carousel-item :key="i" v-for="(items, i) in sortedItems">
+      <v-carousel-item :key="i" v-for="(partItems, i) in sortedItems">
         <v-layout row>
           <v-flex
-            :key="i"
+            :key="item.id"
             @click.stop="selectItem(item)"
-            v-for="item in items"
+            v-for="item in partItems"
             pl-2
             pr-2
             sm4
           >
             <v-card>
-              <ImageFdg :image="item.thumbnail" aspect-ratio="1" />
+              <v-img
+                :src="item.thumbnail.url | fdgApiUrl"
+                class="fdgImage"
+                aspect-ratio="1"
+              />
               <v-card-title primary-title>
                 <div>
                   <h3 class="headline mb-0">{{ item.name }}</h3>
@@ -30,9 +34,7 @@
 
     <v-dialog
       v-model="itemDialog"
-      eager
       max-width="600px"
-      scrollable
       transition="dialog-bottom-transition"
     >
       <v-card v-if="activeItem">
@@ -40,17 +42,17 @@
           {{ activeItem.name }}
         </v-card-title>
 
-        <v-card-text>
+        <v-card-subtitle>
           {{ activeItem.description }}
-        </v-card-text>
+        </v-card-subtitle>
 
-        <ImageFdg :image="activeItem.thumbnail" />
+        <v-img :src="activeItem.thumbnail.url | fdgApiUrl" class="fdgImage" />
 
         <template v-if="activeItem.obtain">
-          <v-card-title class="display-2 my-2" tag="h3">
-            Obtention
-          </v-card-title>
-          <v-card-text v-html="$md.render(activeItem.obtain)"></v-card-text>
+          <v-card-text tag="h3">
+            <h4 class="display-2 my-2">Obtention</h4>
+            <div v-html="$md.render(activeItem.obtain)"></div>
+          </v-card-text>
         </template>
       </v-card>
     </v-dialog>
@@ -58,12 +60,7 @@
 </template>
 
 <script>
-import ImageFdg from '~/components/images/fdg.vue'
-
 export default {
-  components: {
-    ImageFdg
-  },
   props: {
     items: {
       type: Array,
