@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="glitch" class="mx-auto" max-width="400">
+  <v-card v-if="glitch" class="mx-auto body-1">
     <v-list-item>
       <v-list-item-avatar color="grey">
         <v-img :src="glitch.page.author.avatar.url | fdgApiUrl"></v-img>

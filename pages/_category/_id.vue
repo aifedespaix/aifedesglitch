@@ -19,7 +19,7 @@
       <h2>Tous les Glitchs de {{ category.name }}</h2>
     </v-container>
     <v-flex v-for="glitch in glitches" :key="glitch._id" xs12 sm6 lg4 pa-2>
-      <ArticleCard :glitch="glitch" />
+      <Glitch :glitch="glitch" />
     </v-flex>
   </v-container>
 </template>
@@ -27,11 +27,11 @@
 <script>
 import axios from 'axios'
 
-import ArticleCard from '~/components/ArticleCard.vue'
+import Glitch from '~/components/cards/Glitch.vue'
 
 export default {
   components: {
-    ArticleCard
+    Glitch
   },
   data: () => ({
     category: null,

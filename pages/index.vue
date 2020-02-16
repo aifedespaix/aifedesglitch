@@ -1,5 +1,4 @@
 <template>
-  <!--          <div v-html="$md.render(article.content)"></div>-->
   <v-container fluid>
     <h1 class="display-2">
       aifedesglitch
@@ -22,7 +21,7 @@
 <script>
 import axios from 'axios'
 
-import Glitch from '~/components/ArticleCard.vue'
+import Glitch from '~/components/cards/Glitch.vue'
 
 export default {
   components: {
