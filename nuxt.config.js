@@ -1,8 +1,17 @@
+import axios from 'axios'
+
 export default {
   mode: 'universal',
   /*
    ** Headers of the page
    */
+  generate: {
+    async routes() {
+      const glitchsUrl = `https://aifedesglitch.aifedespaix.com/glitches`
+      const { data } = await axios.get(glitchsUrl)
+      return data.map((g) => `/${g.category.page.slug}/${g.page.slug}`)
+    }
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
