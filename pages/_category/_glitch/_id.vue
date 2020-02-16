@@ -1,11 +1,13 @@
 <template>
   <v-container v-if="glitch">
     <v-row>
-      <v-col md="9" sm="12" tag="article">
+      <v-col sm="12">
         <h1 class="display-3 my-4">{{ glitch.title }}</h1>
-
         <div v-if="glitch.detail" v-html="$md.render(glitch.detail)"></div>
-
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col md="9" sm="12" tag="article">
         <v-responsive
           v-if="glitch.youtubeId"
           :aspect-ratio="16 / 9"

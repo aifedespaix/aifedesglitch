@@ -1,28 +1,31 @@
 <template>
-  <v-card v-if="glitch" class="mx-auto body-1">
+  <v-card v-if="glitch" :to="glitchUrl" class="mx-auto body-1" router>
     <v-list-item>
       <v-list-item-avatar color="grey">
         <v-img :src="glitch.page.author.avatar.url | fdgApiUrl"></v-img>
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-list-item-title class="headline">{{
-          glitch.page.title
-        }}</v-list-item-title>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-list-item-title v-on="on" class="headline">
+              {{ glitch.page.title }}
+            </v-list-item-title>
+          </template>
+          <span>{{ glitch.page.title }}</span>
+        </v-tooltip>
         <v-list-item-subtitle v-if="glitch.page.author.username"
           >par {{ glitch.page.author.username }}</v-list-item-subtitle
         >
       </v-list-item-content>
     </v-list-item>
+
     <v-img
       v-if="glitch.page.banner"
       :src="glitch.page.banner.url | fdgApiUrl"
-      :to="glitchUrl"
       class="white--text align-end"
       height="200px"
     >
     </v-img>
-
-    <v-card-title v-else>{{ glitch.page.title }}</v-card-title>
 
     <v-card-text class="text--primary">
       {{ glitch.page.description }}

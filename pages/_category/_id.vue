@@ -18,9 +18,13 @@
     <v-container>
       <h2>Tous les Glitchs de {{ category.name }}</h2>
     </v-container>
-    <v-flex v-for="glitch in glitches" :key="glitch._id" xs12 sm6 lg4 pa-2>
-      <Glitch :glitch="glitch" />
-    </v-flex>
+    <v-container>
+      <v-row>
+        <v-col v-for="glitch in glitches" :key="glitch._id" xs="6" md="2" pa-2>
+          <Glitch :glitch="glitch" />
+        </v-col>
+      </v-row>
+    </v-container>
   </v-container>
 </template>
 

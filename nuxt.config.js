@@ -7,9 +7,21 @@ export default {
    */
   generate: {
     async routes() {
-      const glitchsUrl = `https://aifedesglitch.aifedespaix.com/glitches`
-      const { data } = await axios.get(glitchsUrl)
-      return data.map((g) => `/${g.category.page.slug}/${g.page.slug}`)
+      const load = async (url) => {
+        const { data } = await axios.get(url)
+        return data
+      }
+
+      const test = [
+        (await load(`https://aifedesglitch.aifedespaix.com/glitches`)).map(
+          (g) => `/${g.category.page.slug}/${g.page.slug}/${g.id}`
+        ),
+        (await load(`https://aifedesglitch.aifedespaix.com/categories`)).map(
+          (c) => `/${c.page.slug}/${c.id}`
+        )
+      ]
+      console.log(test)
+      return test
     }
   },
   head: {
