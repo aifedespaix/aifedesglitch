@@ -5,9 +5,7 @@
         <v-parallax :src="category.page.banner.url | fdgApiUrl">
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
-              <h1
-                class="display-3 font-weight-thin mb-4 grey--text text--darken-4"
-              >
+              <h1 v-h1>
                 {{ category.name }}
               </h1>
             </v-col>
@@ -15,12 +13,23 @@
         </v-parallax>
       </v-col>
     </v-row>
-    <v-container>
-      <h2>Tous les Glitchs de {{ category.name }}</h2>
-    </v-container>
-    <v-container>
+
+    <v-container fluid>
       <v-row>
-        <v-col v-for="glitch in glitches" :key="glitch._id" xs="6" md="2" pa-2>
+        <v-col xs="12" pa-2>
+          <h2 v-h2>Tous les Glitchs de {{ category.name }}</h2>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col
+          v-for="glitch in glitches"
+          :key="glitch._id"
+          xs="6"
+          md="4"
+          lg="3"
+          pa-2
+        >
           <Glitch :glitch="glitch" />
         </v-col>
       </v-row>

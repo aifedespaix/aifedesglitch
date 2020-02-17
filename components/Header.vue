@@ -22,11 +22,7 @@
       </template>
       <v-list>
         <v-list-item>
-          <v-switch
-            v-model="$vuetify.theme.dark"
-            label="Theme Sombre"
-            primary
-          />
+          <v-switch v-model="darkTheme" label="Theme Sombre" primary />
         </v-list-item>
       </v-list>
     </v-menu>
@@ -43,7 +39,21 @@ export default {
   computed: {
     isLargeScreen() {
       return this.$store.state.layout.isLargeScreen
+    },
+    darkTheme: {
+      get() {
+        return process.browser ? JSON.parse(localStorage.darkTheme) : false
+      },
+      set(value) {
+        if (process.browser) {
+          localStorage.darkTheme = value
+          this.$vuetify.theme.dark = value
+        }
+      }
     }
+  },
+  mounted() {
+    this.$vuetify.theme.dark = this.darkTheme
   },
   methods: {
     switchNav() {

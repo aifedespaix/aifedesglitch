@@ -42,11 +42,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/css/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/filter.js'],
+  plugins: [
+    '~plugins/filter.js',
+    '~/plugins/global.js',
+    '~/plugins/directives.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */

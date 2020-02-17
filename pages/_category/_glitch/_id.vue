@@ -2,7 +2,7 @@
   <v-container v-if="glitch">
     <v-row>
       <v-col sm="12">
-        <h1 class="display-3 my-4">{{ glitch.title }}</h1>
+        <h1 v-h1>{{ glitch.title }}</h1>
         <div v-if="glitch.detail" v-html="$md.render(glitch.detail)"></div>
       </v-col>
     </v-row>
@@ -25,15 +25,14 @@
         </v-responsive>
 
         <template v-if="glitch.fonctionnement">
-          <h2 class="display-2 my-2">Fonctionnement</h2>
+          <h2 v-h2>Fonctionnement</h2>
           <div v-html="$md.render(glitch.fonctionnement)"></div>
         </template>
-
         <ItemsCarousel v-if="glitch.items.length" :items="glitch.items" />
       </v-col>
 
       <v-col v-if="similarGlitchs.length" md="3" xs="12">
-        <h3 class="display-2 my-2">Glitchs similaires</h3>
+        <h3 v-h3>Glitchs similaires</h3>
         <v-row dense>
           <v-col v-for="glitch in similarGlitchs" :key="glitch.id" cols="12">
             <Glitch :glitch="glitch"></Glitch>
