@@ -1,5 +1,6 @@
 <template>
   <v-app-bar
+    v-bind:class="{ 'flex-row-reverse': !isLargeScreen }"
     :bottom="!isLargeScreen"
     :clipped-left="isLargeScreen"
     :clipped-right="!isLargeScreen"

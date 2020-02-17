@@ -18,8 +18,8 @@
             <v-card>
               <v-img
                 :src="item.thumbnail.url | fdgApiUrl"
-                class="fdgImage"
                 aspect-ratio="1"
+                class="fdgImage"
               />
               <v-card-title primary-title>
                 <div>
@@ -46,7 +46,11 @@
           {{ activeItem.description }}
         </v-card-subtitle>
 
-        <v-img :src="activeItem.thumbnail.url | fdgApiUrl" class="fdgImage" />
+        <v-img
+          :src="activeItem.thumbnail.url | fdgApiUrl"
+          max-height="300px"
+          class="fdgImage"
+        />
 
         <template v-if="activeItem.obtain">
           <v-card-text tag="h3">

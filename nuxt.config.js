@@ -64,10 +64,11 @@ export default {
     injected: true
   },
   vuetify: {
-    font: {
-      family: 'Roboto'
-    }
-    // icons: 'mdi'
+    defaultAssets: false,
+    icons: {
+      iconfont: false
+    },
+    optionsPath: './plugins/vuetify.js'
   },
   /*
    ** Nuxt.js modules

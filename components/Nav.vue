@@ -7,16 +7,23 @@
     clipped
     fixed
   >
-    <v-list dense>
+    <v-list
+      v-bind:class="{
+        'flex-column-reverse': !isLargeScreen,
+        'flex-column': isLargeScreen
+      }"
+      dense
+      class="h-full d-flex justify-start"
+    >
       <v-list-item
         :key="item.title"
         :to="item.route"
-        @click=""
         v-for="item in items"
+        class="flex-0"
         router
       >
         <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
+          <v-icon>$vuetify.icons.{{ item.icon }}</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -28,7 +35,12 @@
         :key="category.name"
         :to="categoryRoute(category.page.id, category.page.slug)"
         v-for="category in categories"
+        router
+        class="flex-0"
       >
+        <v-list-item-icon>
+          <v-icon>$vuetify.icons.{{ category.icon }}</v-icon>
+        </v-list-item-icon>
         <v-list-item-title>{{ category.name }}</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -42,7 +54,7 @@ export default {
     items: [
       {
         title: 'Accueil',
-        icon: 'mdi-home',
+        icon: 'home',
         route: '/'
       }
     ]

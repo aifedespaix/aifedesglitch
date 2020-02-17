@@ -1,5 +1,18 @@
 import Vue from 'vue'
 
+Vue.directive('banner', {
+  bind(el) {
+    el.classList.add('display-3')
+    el.classList.add('my-4')
+    el.classList.add('text-shadow')
+  },
+  unbind(el) {
+    el.classList.remove('display-3')
+    el.classList.remove('my-4')
+    el.classList.remove('text-shadow')
+  }
+})
+
 Vue.directive('h1', {
   bind(el) {
     el.classList.add('display-3')

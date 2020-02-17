@@ -31,9 +31,14 @@
         <ItemsCarousel v-if="glitch.items.length" :items="glitch.items" />
       </v-col>
 
-      <v-col v-if="similarGlitchs.length" md="3" xs="12">
-        <h3 v-h3>Glitchs similaires</h3>
-        <v-row dense>
+      <v-col md="3" xs="12">
+        <h3 v-h3>Difficulté</h3>
+        <div class="d-flex justify-center">
+          <Difficulty :difficulty="glitch.difficulty" />
+        </div>
+
+        <h3 v-if="similarGlitchs.length" v-h3>Glitchs similaires</h3>
+        <v-row v-if="similarGlitchs.length" dense>
           <v-col v-for="glitch in similarGlitchs" :key="glitch.id" cols="12">
             <Glitch :glitch="glitch"></Glitch>
           </v-col>
@@ -47,11 +52,13 @@
 import axios from 'axios'
 import Glitch from '~/components/cards/Glitch.vue'
 import ItemsCarousel from '~/components/carousels/Items.vue'
+import Difficulty from '~/components/difficulty.vue'
 
 export default {
   components: {
     Glitch,
-    ItemsCarousel
+    ItemsCarousel,
+    Difficulty
   },
   data: () => ({
     glitch: null,
