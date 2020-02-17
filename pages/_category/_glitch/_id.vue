@@ -27,11 +27,24 @@
         <template v-if="glitch.fonctionnement">
           <h2 v-h2>Fonctionnement</h2>
           <div v-html="$md.render(glitch.fonctionnement)"></div>
+
+          <ItemsCarousel v-if="glitch.items.length" :items="glitch.items" />
+
+          <h2 v-h2>Sources</h2>
+          <ul>
+            <li v-for="source in glitch.sources">
+              <a :href="source.url" target="_blank">{{ source.title }}</a>
+              par {{ source.author }}
+            </li>
+          </ul>
         </template>
-        <ItemsCarousel v-if="glitch.items.length" :items="glitch.items" />
       </v-col>
 
       <v-col md="3" xs="12">
+        <span class="caption">
+          Publié le {{ glitch.created_at | formatDate }}
+        </span>
+
         <h3 v-h3>Difficulté</h3>
         <div class="d-flex justify-center">
           <Difficulty :difficulty="glitch.difficulty" />
