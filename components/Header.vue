@@ -6,7 +6,9 @@
     :clipped-right="!isLargeScreen"
     app
   >
-    <v-app-bar-nav-icon @click.stop="switchNav()" v-if="!isLargeScreen" />
+    <v-app-bar-nav-icon @click.stop="switchNav()" v-if="!isLargeScreen">
+      <v-icon>$vuetify.icons.menu</v-icon>
+    </v-app-bar-nav-icon>
     <Logo />
     <v-spacer />
 

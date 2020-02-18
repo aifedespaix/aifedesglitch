@@ -4,6 +4,7 @@ import Medium from '~/components/icons/medium.vue'
 import Hard from '~/components/icons/hard.vue'
 import VeryHard from '~/components/icons/very-hard.vue'
 import Home from '~/components/icons/home.vue'
+import Menu from '~/components/icons/menu.vue'
 
 export default {
   iconfont: false,
@@ -19,7 +20,8 @@ export default {
       easy: { component: Easy },
       medium: { component: Medium },
       hard: { component: Hard },
-      veryHard: { component: VeryHard }
+      veryHard: { component: VeryHard },
+      menu: { component: Menu }
     }
   }
   // lang: {},
