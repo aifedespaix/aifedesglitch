@@ -4,6 +4,7 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
   return {
     title: getTitle(page.title, titleComplement),
     meta: [
+      { property: 'fb:app_id', content: '182305972365278' },
       {
         hid: 'description',
         name: 'description',
@@ -32,7 +33,37 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
       {
         hid: 'og:image',
         name: 'og:image',
-        content: page.thumbnail.url
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: getTitle(page.title, titleComplement)
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:description',
+        content: page.description
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: aifedesglitchApiUrl(page.thumbnail.url)
+      },
+      {
+        hid: 'twitter:card',
+        name: 'og:image',
+        content: aifedesglitchApiUrl(page.thumbnail.url)
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@aifedesglitch'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: 'aifedesglitch.com'
       }
     ]
   }
@@ -43,4 +74,8 @@ function getTitle(title, complement = '') {
     complement = `(${complement})`
   }
   return `${title} ${complement} - aifedesglitch`
+}
+
+function aifedesglitchApiUrl(path) {
+  return `https://aifedesglitch.aifedespaix.com${path}`
 }
