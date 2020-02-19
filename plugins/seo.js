@@ -9,11 +9,11 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
         name: 'description',
         content: page.description
       },
-      {
-        hid: 'og:url',
-        name: 'og:url',
-        content: page.description
-      },
+      // {
+      //   hid: 'og:url',
+      //   name: 'og:url',
+      //   content: page.description
+      // },
       {
         hid: 'og:type',
         name: 'og:type',
@@ -22,7 +22,7 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
       {
         hid: 'og:title',
         name: 'og:title',
-        content: getTitle(page, titleComplement)
+        content: getTitle(page.title, titleComplement)
       },
       {
         hid: 'og:description',
