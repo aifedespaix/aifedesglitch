@@ -29,6 +29,5 @@ export default {
     }
   }
   // lang: {},
-  // rtl: true,
-  // theme: {}
+  // rtl: true
 }
