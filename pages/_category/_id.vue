@@ -46,15 +46,21 @@ export default {
   components: {
     Glitch
   },
+  head() {
+    return this.$seo(this.category.page)
+  },
   data: () => ({
     category: null,
     glitches: []
   }),
-  mounted() {
-    const urlCategory = `https://aifedesglitch.aifedespaix.com/categories/${this.$route.params.id}`
-    axios.get(urlCategory).then((response) => (this.category = response.data))
-    const urlGlitches = `https://aifedesglitch.aifedespaix.com/glitches/?category=${this.$route.params.id}`
-    axios.get(urlGlitches).then((response) => (this.glitches = response.data))
+  async asyncData({ params }) {
+    const urlCategory = `https://aifedesglitch.aifedespaix.com/categories/${params.id}`
+    const urlGlitches = `https://aifedesglitch.aifedespaix.com/glitches/?category=${params.id}`
+
+    return {
+      category: (await axios.get(urlCategory)).data,
+      glitches: (await axios.get(urlGlitches)).data
+    }
   }
 }
 </script>

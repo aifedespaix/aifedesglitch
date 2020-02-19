@@ -4,6 +4,7 @@
       <v-list-item-avatar color="grey">
         <v-img :src="glitch.page.author.avatar.url | fdgApiUrl"></v-img>
       </v-list-item-avatar>
+
       <v-list-item-content>
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
@@ -20,9 +21,8 @@
     </v-list-item>
 
     <v-img
-      v-if="glitch.page.banner"
-      :src="glitch.page.banner.url | fdgApiUrl"
-      class="white--text align-end"
+      v-if="glitch.page.thumbnail"
+      :src="glitch.page.thumbnail.url | fdgApiUrl"
       height="200px"
     >
     </v-img>
@@ -35,11 +35,12 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn v-on="on" :href="tweetUrl" target="_blank" color="normal" icon>
-            <v-icon>mdi-twitter</v-icon>
+            <v-icon>$vuetify.icons.twitter</v-icon>
           </v-btn>
         </template>
         <span>Partager sur Twitter</span>
       </v-tooltip>
+
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn
@@ -49,7 +50,7 @@
             color="normal"
             icon
           >
-            <v-icon>mdi-facebook</v-icon>
+            <v-icon>$vuetify.icons.facebook</v-icon>
           </v-btn>
         </template>
         <span>Partager sur Facebook</span>

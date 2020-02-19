@@ -22,9 +22,6 @@ export default {
     Nav,
     Footer
   },
-  data: () => ({
-    drawers: ['Default (no property)', 'Permanent', 'Temporary']
-  }),
   mounted() {
     this.onResize()
     window.addEventListener('resize', this.onResize, { passive: true })

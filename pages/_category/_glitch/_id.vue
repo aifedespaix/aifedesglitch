@@ -3,14 +3,14 @@
     <v-row>
       <v-col sm="12">
         <h1 v-h1>{{ glitch.title }}</h1>
-        <div v-if="glitch.detail" v-html="$md.render(glitch.detail)"></div>
+        <div v-html="$md.render(glitch.detail)" v-if="glitch.detail"></div>
       </v-col>
     </v-row>
     <v-row>
-      <v-col md="9" sm="12" tag="article">
+      <v-col md="8" sm="12" tag="article">
         <v-responsive
-          v-if="glitch.youtubeId"
           :aspect-ratio="16 / 9"
+          v-if="glitch.youtubeId"
           max-height="calc(100vh - 64px)"
         >
           <iframe
@@ -28,7 +28,10 @@
           <h2 v-h2>Fonctionnement</h2>
           <div v-html="$md.render(glitch.fonctionnement)"></div>
 
-          <ItemsCarousel v-if="glitch.items.length" :items="glitch.items" />
+          <ItemsCarousel
+            :items="glitch.items"
+            v-if="glitch.items && glitch.items.length"
+          />
 
           <h2 v-h2>Sources</h2>
           <ul>
@@ -40,7 +43,7 @@
         </template>
       </v-col>
 
-      <v-col md="3" xs="12">
+      <v-col md="4" xs="12">
         <span class="caption">
           Publié le {{ glitch.created_at | formatDate }}
         </span>
@@ -50,9 +53,11 @@
           <Difficulty :difficulty="glitch.difficulty" />
         </div>
 
-        <h3 v-if="similarGlitchs.length" v-h3>Glitchs similaires</h3>
-        <v-row v-if="similarGlitchs.length" dense>
-          <v-col v-for="glitch in similarGlitchs" :key="glitch.id" cols="12">
+        <h3 v-h3 v-if="similarGlitchs && similarGlitchs.length">
+          Glitchs similaires
+        </h3>
+        <v-row v-if="similarGlitchs && similarGlitchs.length" dense>
+          <v-col :key="glitch.id" v-for="glitch in similarGlitchs" cols="12">
             <Glitch :glitch="glitch"></Glitch>
           </v-col>
         </v-row>
@@ -73,25 +78,24 @@ export default {
     ItemsCarousel,
     Difficulty
   },
-  data: () => ({
-    glitch: null,
-    similarGlitchs: []
-  }),
+  head() {
+    return this.$seo(this.glitch.page, this.glitch.category.name)
+  },
   computed: {
     videoUrl() {
       return `https://www.youtube.com/embed/${this.glitch.youtubeId}`
     }
   },
-  mounted() {
-    const glitchUrl = `https://aifedesglitch.aifedespaix.com/glitches/${this.$route.params.id}`
-    axios.get(glitchUrl).then((response) => (this.glitch = response.data))
+  async asyncData({ params }) {
+    const glitchUrl = `https://aifedesglitch.aifedespaix.com/glitches/${params.id}`
     const similarGlitchsUrl = `https://aifedesglitch.aifedespaix.com/glitches?_limit=10`
-    axios.get(similarGlitchsUrl).then(
-      (response) =>
-        (this.similarGlitchs = response.data.filter((g) => {
-          return g.id !== Number(this.$route.params.id)
-        }))
-    )
+
+    return {
+      glitch: (await axios.get(glitchUrl)).data,
+      similarGlitchs: (await axios.get(similarGlitchsUrl)).data.filter((g) => {
+        return g.id !== Number(params.id)
+      })
+    }
   }
 }
 </script>
