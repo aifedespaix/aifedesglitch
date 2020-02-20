@@ -15,7 +15,7 @@ export default ({ app }) => {
   /*
   ** Affecter la page courante
   */
-  ga('create', 'G-99WHJVHKVP', 'auto')
+  ga('create', 'UA-105297175-2', 'auto')
   /*
   ** Chaque fois que la route change
   */
