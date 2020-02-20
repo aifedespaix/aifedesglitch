@@ -4,9 +4,9 @@
     <AppBar />
 
     <v-content>
+      <WarnCookies />
       <nuxt />
     </v-content>
-
     <Footer />
   </v-app>
 </template>
@@ -15,12 +15,14 @@
 import Nav from '~/components/Nav.vue'
 import AppBar from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
+import WarnCookies from '~/components/bottom-sheet/warn-cookies.vue'
 
 export default {
   components: {
     AppBar,
     Nav,
-    Footer
+    Footer,
+    WarnCookies
   },
   mounted() {
     this.onResize()

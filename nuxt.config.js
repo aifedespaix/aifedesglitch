@@ -58,7 +58,8 @@ export default {
     '~plugins/filter.js',
     '~/plugins/global.js',
     '~/plugins/directives.js',
-    '~/plugins/seo.js'
+    '~/plugins/seo.js',
+    '~/plugins/google-analytics.js'
   ],
   /*
    ** Nuxt.js dev-modules

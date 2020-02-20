@@ -44,9 +44,12 @@
       </v-col>
 
       <v-col md="4" xs="12">
-        <span class="caption">
-          Publié le {{ glitch.created_at | formatDate }}
-        </span>
+        <div class="d-flex justify-space-between">
+          <span class="caption">
+            Publié le {{ glitch.created_at | formatDate }}
+          </span>
+          <Share :page="glitch.page" />
+        </div>
 
         <h3 v-h3>Difficulté</h3>
         <div class="d-flex justify-center">
@@ -71,12 +74,14 @@ import axios from 'axios'
 import Glitch from '~/components/cards/Glitch.vue'
 import ItemsCarousel from '~/components/carousels/Items.vue'
 import Difficulty from '~/components/difficulty.vue'
+import Share from '~/components/btns/share.vue'
 
 export default {
   components: {
     Glitch,
     ItemsCarousel,
-    Difficulty
+    Difficulty,
+    Share
   },
   head() {
     return this.$seo(this.glitch.page, this.glitch.category.name)

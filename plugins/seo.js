@@ -33,7 +33,7 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
       {
         hid: 'og:image',
         name: 'og:image',
-        content: 'summary_large_image'
+        content: aifedesglitchApiUrl(page.thumbnail.url)
       },
       {
         hid: 'twitter:title',
@@ -41,7 +41,7 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
         content: getTitle(page.title, titleComplement)
       },
       {
-        hid: 'twitter:title',
+        hid: 'twitter:description',
         name: 'twitter:description',
         content: page.description
       },
@@ -52,8 +52,8 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
       },
       {
         hid: 'twitter:card',
-        name: 'og:image',
-        content: aifedesglitchApiUrl(page.thumbnail.url)
+        name: 'twitter:card',
+        content: 'summary_large_image'
       },
       {
         hid: 'twitter:creator',

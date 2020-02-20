@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="glitch" :to="glitchUrl" class="mx-auto body-1" router>
+  <v-card v-if="glitch" class="mx-auto body-1">
     <v-list-item>
       <v-list-item-avatar color="grey">
         <v-img :src="glitch.page.author.avatar.url | fdgApiUrl"></v-img>
@@ -32,29 +32,7 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn v-on="on" :href="tweetUrl" target="_blank" color="normal" icon>
-            <v-icon>$vuetify.icons.twitter</v-icon>
-          </v-btn>
-        </template>
-        <span>Partager sur Twitter</span>
-      </v-tooltip>
-
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn
-            v-on="on"
-            :href="facebookUrl"
-            target="_blank"
-            color="normal"
-            icon
-          >
-            <v-icon>$vuetify.icons.facebook</v-icon>
-          </v-btn>
-        </template>
-        <span>Partager sur Facebook</span>
-      </v-tooltip>
+      <Share :page="glitch.page" />
 
       <v-spacer />
 
@@ -71,7 +49,11 @@
 </template>
 
 <script>
+import Share from '~/components/btns/share.vue'
 export default {
+  components: {
+    Share
+  },
   props: {
     glitch: {
       type: Object,
@@ -81,21 +63,6 @@ export default {
   computed: {
     glitchUrl() {
       return `/${this.glitch.category.page.slug}/${this.glitch.page.slug}/${this.glitch.id}`
-    },
-    tweetUrl() {
-      const url = encodeURIComponent(
-        `https://aifedesglitch.com${this.$nuxt.$route.path}`
-      )
-      const via = 'aifedespaix'
-      const text = encodeURIComponent(this.glitch.page.title)
-      return `https://twitter.com/intent/tweet?url=${url}&via=${via}&text=${text}`
-    },
-    facebookUrl() {
-      const url = encodeURIComponent(
-        `https://aifedesglitch.com${this.$nuxt.$route.path}`
-      )
-      const text = encodeURIComponent(this.glitch.page.title)
-      return `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${text}`
     }
   }
 }
