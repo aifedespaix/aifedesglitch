@@ -59,7 +59,7 @@ export default {
     '~/plugins/global.js',
     '~/plugins/directives.js',
     '~/plugins/seo.js',
-    '~/plugins/google-analytics.js'
+    { src: '~/plugins/google-analytics.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules

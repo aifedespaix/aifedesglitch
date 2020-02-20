@@ -45,12 +45,12 @@ export default {
     },
     darkTheme: {
       get() {
-        return process.browser
+        return process.client
           ? JSON.parse(localStorage.getItem('darkTheme'))
           : false
       },
       set(value) {
-        if (process.browser) {
+        if (process.client) {
           localStorage.setItem('darkTheme', value)
           this.$vuetify.theme.dark = value
         }
