@@ -13,7 +13,8 @@
         'flex-column': isLargeScreen
       }"
       dense
-      class="h-full d-flex justify-start"
+      height="100%"
+      class="d-flex justify-start"
     >
       <v-list-item
         :key="item.title"

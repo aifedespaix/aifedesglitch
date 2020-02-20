@@ -84,7 +84,25 @@ export default {
     Share
   },
   head() {
-    return this.$seo(this.glitch.page, this.glitch.category.name)
+    const seo = this.$seo(this.glitch.page, this.glitch.category.name)
+    seo.meta.push(
+      {
+        hid: 'og:video',
+        name: 'og:video',
+        content: `https://www.youtube.com/v/${this.glitch.youtubeId}`
+      },
+      {
+        hid: 'og:video:width',
+        name: 'og:video:width',
+        content: `1920`
+      },
+      {
+        hid: 'og:video:height',
+        name: 'og:video:height',
+        content: `1080`
+      }
+    )
+    return seo
   },
   computed: {
     videoUrl() {

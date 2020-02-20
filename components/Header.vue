@@ -17,7 +17,7 @@
         <v-tooltip bottom>
           <template v-slot:activator="{ on: tooltip }">
             <v-btn v-on="{ ...tooltip, ...menu }" icon>
-              <v-icon>mdi-cogs</v-icon>
+              <v-icon>$vuetify.icons.cogs</v-icon>
             </v-btn>
           </template>
           <span>Paramètres</span>

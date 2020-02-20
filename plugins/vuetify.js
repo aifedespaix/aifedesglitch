@@ -7,6 +7,7 @@ import Home from '~/components/icons/home.vue'
 import Facebook from '~/components/icons/facebook.vue'
 import Twitter from '~/components/icons/twitter.vue'
 import Menu from '~/components/icons/menu.vue'
+import Cogs from '~/components/icons/cogs.vue'
 
 export default {
   iconfont: false,
@@ -25,7 +26,8 @@ export default {
       veryHard: { component: VeryHard },
       facebook: { component: Facebook },
       twitter: { component: Twitter },
-      menu: { component: Menu }
+      menu: { component: Menu },
+      cogs: { component: Cogs }
     }
   }
   // lang: {},
