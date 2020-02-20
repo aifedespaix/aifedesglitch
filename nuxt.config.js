@@ -87,9 +87,25 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
+  sitemap: {
+    hostname: 'https://aifedesglitch.com',
+    gzip: true
+    // exclude: ['/secret', '/admin/**']
+    // routes: [
+    //   '/page/1',
+    //   '/page/2',
+    //   {
+    //     url: '/page/3',
+    //     changefreq: 'daily',
+    //     priority: 1,
+    //     lastmod: '2017-06-30T13:30:00.000Z'
+    //   }
+    // ]
+  },
   pwa: {
     meta: {
       /* meta options */
