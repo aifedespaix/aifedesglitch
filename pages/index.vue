@@ -28,6 +28,16 @@ export default {
   components: {
     Glitch
   },
+  head() {
+    return this.$seo({
+      title: "Page d'accueil : les derniers glitchs",
+      description:
+        "Avec aifedesglitch, on casse le 4ème mur entre le développeur et le joueur ! Grâce à des tutos clairs et en Français. On comprend ce qu'il se passe en jeu pour pouvoir découvrir toujours plus de nouveaux glitchs",
+      thumbnail: {
+        url: '/uploads/5fdfbea8a7f94002a82bcfa12e634dc7.jpg'
+      }
+    })
+  },
   data: () => ({
     lastGlitches: []
   }),
