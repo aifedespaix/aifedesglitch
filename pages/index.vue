@@ -30,7 +30,7 @@ export default {
   },
   head() {
     return this.$seo({
-      title: "Page d'accueil : les derniers glitchs",
+      title: "Page d'accueil : les derniers glitchs en Français",
       description:
         "Avec aifedesglitch, on casse le 4ème mur entre le développeur et le joueur ! Grâce à des tutos clairs et en Français. On comprend ce qu'il se passe en jeu pour pouvoir découvrir toujours plus de nouveaux glitchs",
       thumbnail: {

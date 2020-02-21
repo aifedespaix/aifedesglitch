@@ -21,6 +21,11 @@ Vue.prototype.$seo = (page, titleComplement = '') => {
         content: 'article'
       },
       {
+        hid: 'google-site-verification',
+        name: 'google-site-verification',
+        content: 'Rl35VY5Fy6h9F7bgKWv2u81nK3gyI4s41ZbgsO1scs8'
+      },
+      {
         hid: 'og:title',
         name: 'og:title',
         content: getTitle(page.title, titleComplement)
