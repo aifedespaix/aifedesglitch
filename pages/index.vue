@@ -32,7 +32,7 @@ export default {
     return this.$seo({
       title: "Page d'accueil : les derniers glitchs en Français",
       description:
-        "Avec aifedesglitch, on casse le 4ème mur entre le développeur et le joueur ! Grâce à des tutos clairs et en Français. On comprend ce qu'il se passe en jeu pour pouvoir découvrir toujours plus de nouveaux glitchs",
+        "Avec aifedesglitch, on casse le 4ème mur entre le développeur et le joueur, grâce à des vidéos claires, en Français accompagnées d'éxplications détaillées.",
       thumbnail: {
         url: '/uploads/5fdfbea8a7f94002a82bcfa12e634dc7.jpg'
       }
