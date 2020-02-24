@@ -13,7 +13,7 @@ export default {
     simplePage: null
   }),
   head() {
-    return this.$seo(this.simplePage.page)
+    return this.$fdg.seo.title(this.simplePage.page)
   },
   async asyncData() {
     const simplePageUrl = `https://aifedesglitch.aifedespaix.com/simple-pages/?name=cgu`

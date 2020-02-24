@@ -1,9 +1,8 @@
 import Vue from 'vue'
 
-Vue.filter(
-  'fdgApiUrl',
-  (path) => `https://aifedesglitch.aifedespaix.com${path}`
-)
+Vue.filter('fdgApiUrl', (path) => {
+  return `https://aifedesglitch.aifedespaix.com${path}`
+})
 
 Vue.filter('formatDate', function(value) {
   if (value) {

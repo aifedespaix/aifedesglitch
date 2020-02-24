@@ -17,6 +17,13 @@ module.exports = {
   plugins: [
     'prettier'
   ],
+  settings: {
+    'import/resolver': {
+      node: {
+        'paths':{'~/*': ['./*']}
+      },
+    },
+  },
   // add your custom rules here
   rules: {
   }

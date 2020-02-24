@@ -37,14 +37,14 @@ export default {
   computed: {
     facebookUrl() {
       const url = encodeURIComponent(
-        `https://aifedesglitch.com${this.$nuxt.$route.path}`
+        this.$fdg.url.canonic(this.$nuxt.$route.path)
       )
       const text = encodeURIComponent(this.page.title)
       return `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${text}`
     },
     tweetUrl() {
       const url = encodeURIComponent(
-        `https://aifedesglitch.com${this.$nuxt.$route.path}`
+        this.$fdg.url.canonic(this.$nuxt.$route.path)
       )
       const via = 'aifedesglitch'
       const text = encodeURIComponent(this.page.title)

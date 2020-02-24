@@ -25,7 +25,7 @@
         </v-responsive>
 
         <template v-if="glitch.fonctionnement">
-          <h2 v-h2>Fonctionnement</h2>
+          <h3 v-h2>Fonctionnement</h3>
           <div v-html="$md.render(glitch.fonctionnement)"></div>
 
           <ItemsCarousel
@@ -33,7 +33,7 @@
             v-if="glitch.items && glitch.items.length"
           />
 
-          <h2 v-h2>Sources</h2>
+          <h3 v-h2>Sources</h3>
           <ul>
             <li v-for="source in glitch.sources">
               <a :href="source.url" target="_blank">{{ source.title }}</a>
@@ -41,6 +41,14 @@
             </li>
           </ul>
         </template>
+        <h3 v-h2>Commentaires</h3>
+        <client-only placeholder="Chargement...">
+          <vue-disqus
+            :identifier="glitch.page.slug"
+            :url="$fdg.url.canonic($fdg.url.routing.glitch(glitch))"
+            shortname="aifedesglitch"
+          ></vue-disqus
+        ></client-only>
       </v-col>
 
       <v-col md="4" xs="12">
@@ -84,7 +92,7 @@ export default {
     Share
   },
   head() {
-    const seo = this.$seo(this.glitch.page, this.glitch.category.name)
+    const seo = this.$fdg.seo.title(this.glitch.page, this.glitch.category.name)
     seo.meta.push(
       {
         hid: 'og:video',

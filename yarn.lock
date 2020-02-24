@@ -10800,6 +10800,11 @@ vue-client-only@^2.0.0:
   resolved "https://registry.yarnpkg.com/vue-client-only/-/vue-client-only-2.0.0.tgz#ddad8d675ee02c761a14229f0e440e219de1da1c"
   integrity sha512-arhk1wtWAfLsJyxGMoEYhoBowM87/i6HLSG2LH/03Yog6i2d9JEN1peMP0Ceis+/n9DxdenGYZZTxbPPJyHciA==
 
+vue-disqus@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/vue-disqus/-/vue-disqus-3.0.5.tgz#8d0dd5cabdba7c47f82d129d2907a64366842fa8"
+  integrity sha512-T3Y68lXf5W2lYt6j4Y3kZ4opLPH0EAzqriy11MS4D4Q2+UN0tFuUXeYP1MxfvdyaCEboXSM6CUswxsULuNV70Q==
+
 vue-eslint-parser@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-5.0.0.tgz#00f4e4da94ec974b821a26ff0ed0f7a78402b8a1"
@@ -10828,6 +10833,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
+
+vue-infinite-loading@^2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/vue-infinite-loading/-/vue-infinite-loading-2.4.4.tgz#8a9defb9ceeea797c057cb36bdf558a4b2ce409f"
+  integrity sha512-eIFBcyKqkivtsDDq7Ee5ybDJVGLxIzU1NcBJCHG7Zx9Ic66QEGzSPs2OPJlGUdtu0/RS7KpUER35ZP/a7FdSOg==
 
 vue-jest@^4.0.0-0:
   version "4.0.0-beta.2"

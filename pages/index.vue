@@ -4,32 +4,20 @@
     <div>Découvre toutes les mécaniques des Glitchs en Français</div>
 
     <h2 v-h2>Les derniers Glitchs</h2>
-    <v-row>
-      <v-col
-        v-for="glitch in lastGlitches"
-        :key="glitch._id"
-        xs="6"
-        md="4"
-        lg="3"
-        pa-2
-      >
-        <Glitch :glitch="glitch" />
-      </v-col>
-    </v-row>
+
+    <Glitchs :glitches="lastGlitches"></Glitchs>
   </v-container>
 </template>
 
 <script>
-import axios from 'axios'
-
-import Glitch from '~/components/cards/Glitch.vue'
+import Glitchs from '~/components/lists/glitches.vue'
 
 export default {
   components: {
-    Glitch
+    Glitchs
   },
   head() {
-    return this.$seo({
+    return this.$fdg.seo.title({
       title: "Page d'accueil : les derniers glitchs en Français",
       description:
         "Avec aifedesglitch, on casse le 4ème mur entre le développeur et le joueur, grâce à des vidéos claires, en Français accompagnées d'éxplications détaillées.",
@@ -41,9 +29,10 @@ export default {
   data: () => ({
     lastGlitches: []
   }),
-  mounted() {
-    const lastGlitchsUrl = `https://aifedesglitch.aifedespaix.com/glitches?_limit=10`
-    axios.get(lastGlitchsUrl).then((r) => (this.lastGlitches = r.data))
+  async asyncData({ app }) {
+    return {
+      lastGlitches: await app.$glitch.filter([{ arg: '_limit', value: 20 }])
+    }
   }
 }
 </script>

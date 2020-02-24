@@ -52,16 +52,6 @@ export default {
    */
   css: ['@/assets/css/main.css'],
   /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [
-    '~plugins/filter.js',
-    '~/plugins/global.js',
-    '~/plugins/directives.js',
-    '~/plugins/seo.js',
-    { src: '~/plugins/google-analytics.js', mode: 'client' }
-  ],
-  /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
@@ -69,6 +59,19 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/markdownit'
+  ],
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: [
+    '~/plugins/filter',
+    '~/plugins/global',
+    '~/plugins/disqus',
+    '~/plugins/directives',
+    '~/plugins/fdg',
+    '~/plugins/api',
+    { src: '~plugins/infinite-loading', mode: 'client' },
+    { src: '~/plugins/google-analytics', mode: 'client' }
   ],
   markdownit: {
     injected: true
