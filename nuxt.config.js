@@ -68,7 +68,7 @@ export default {
     '~/plugins/global',
     '~/plugins/disqus',
     '~/plugins/directives',
-    '~/plugins/fdg',
+    '~/plugins/fdg.js',
     '~/plugins/api',
     { src: '~plugins/infinite-loading', mode: 'client' },
     { src: '~/plugins/google-analytics', mode: 'client' }
