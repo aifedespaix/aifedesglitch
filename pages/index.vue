@@ -4,17 +4,17 @@
     <div>Découvre toutes les mécaniques des Glitchs en Français</div>
 
     <h2 v-h2>Les derniers Glitchs</h2>
-
-    <Glitchs :glitches="lastGlitches"></Glitchs>
+    <Glitches :glitches="lastGlitches"></Glitches>
   </v-container>
 </template>
 
 <script>
-import Glitchs from '~/components/lists/glitches.vue'
+import axios from 'axios'
+import Glitches from '~/components/lists/glitches.vue'
 
 export default {
   components: {
-    Glitchs
+    Glitches
   },
   head() {
     return this.$fdg.seo.title({
@@ -29,10 +29,9 @@ export default {
   data: () => ({
     lastGlitches: []
   }),
-  async asyncData({ app }) {
-    return {
-      lastGlitches: await app.$glitch.filter([{ arg: '_limit', value: 10 }])
-    }
+  async asyncData() {
+    const lastGlitchsUrl = `https://aifedesglitch.aifedespaix.com/glitches?_limit=10`
+    return { lastGlitches: (await axios.get(lastGlitchsUrl)).data }
   }
 }
 </script>

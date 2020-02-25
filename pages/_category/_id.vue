@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import Glitch from '~/components/cards/Glitch.vue'
 
 export default {
@@ -51,12 +53,13 @@ export default {
     category: null,
     glitches: []
   }),
-  async asyncData({ params, app }) {
+  async asyncData({ params }) {
+    const urlCategory = `https://aifedesglitch.aifedespaix.com/categories/${params.id}`
+    const urlGlitches = `https://aifedesglitch.aifedespaix.com/glitches/?category=${params.id}`
+
     return {
-      category: await app.$category.show(params.id),
-      glitches: await app.$glitch.filter([
-        { arg: 'category', value: params.id }
-      ])
+      category: (await axios.get(urlCategory)).data,
+      glitches: (await axios.get(urlGlitches)).data
     }
   }
 }
