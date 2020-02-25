@@ -45,7 +45,15 @@
 
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
-          <v-btn v-on="on" color="primary" raised router>
+          <v-btn
+            v-on="on"
+            :to="glitchUrl"
+            color="primary"
+            raised
+            router
+            aria-label="Accéder à l'article"
+            name="Accéder à l'article"
+          >
             Voir
           </v-btn>
         </template>

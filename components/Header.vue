@@ -16,7 +16,7 @@
       <template v-slot:activator="{ on: menu }">
         <v-tooltip bottom>
           <template v-slot:activator="{ on: tooltip }">
-            <v-btn v-on="{ ...tooltip, ...menu }" icon>
+            <v-btn v-on="{ ...tooltip, ...menu }" icon aria-label="Paramètres">
               <v-icon>$vuetify.icons.cogs</v-icon>
             </v-btn>
           </template>

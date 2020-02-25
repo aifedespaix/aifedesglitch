@@ -2,7 +2,15 @@
   <div>
     <v-tooltip bottom>
       <template v-slot:activator="{ on }">
-        <v-btn v-on="on" :href="tweetUrl" target="_blank" color="normal" icon>
+        <v-btn
+          v-on="on"
+          :href="tweetUrl"
+          target="_blank"
+          color="normal"
+          icon
+          aria-label="Partager sur Twitter"
+          name="Partager sur Twitter"
+        >
           <v-icon color="grey lighten-1">$vuetify.icons.twitter</v-icon>
         </v-btn>
       </template>
@@ -16,6 +24,8 @@
           :href="facebookUrl"
           target="_blank"
           color="normal"
+          aria-label="Partager sur Facebook"
+          name="Partager sur Facebook"
           icon
         >
           <v-icon color="grey lighten-1">$vuetify.icons.facebook</v-icon>
