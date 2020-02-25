@@ -39,7 +39,7 @@
     <v-spacer></v-spacer>
 
     <v-card-actions>
-      <Share :page="glitch.page" />
+      <Share :glitch="glitch" />
 
       <v-spacer />
 

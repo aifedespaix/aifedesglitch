@@ -29,7 +29,7 @@
 <script>
 export default {
   props: {
-    page: {
+    glitch: {
       type: Object,
       default: undefined
     }
@@ -37,17 +37,17 @@ export default {
   computed: {
     facebookUrl() {
       const url = encodeURIComponent(
-        this.$fdg.url.canonic(this.$nuxt.$route.path)
+        this.$fdg.url.canonic(this.$fdg.url.routing.glitch(this.glitch))
       )
-      const text = encodeURIComponent(this.page.title)
+      const text = encodeURIComponent(this.glitch.page.title)
       return `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${text}`
     },
     tweetUrl() {
       const url = encodeURIComponent(
-        this.$fdg.url.canonic(this.$nuxt.$route.path)
+        this.$fdg.url.canonic(this.$fdg.url.routing.glitch(this.glitch))
       )
       const via = 'aifedesglitch'
-      const text = encodeURIComponent(this.page.title)
+      const text = encodeURIComponent(this.glitch.page.title)
       return `https://twitter.com/intent/tweet?url=${url}&via=${via}&text=${text}`
     }
   }

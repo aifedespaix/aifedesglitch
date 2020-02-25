@@ -56,7 +56,7 @@
           <span class="caption">
             Publié le {{ glitch.created_at | formatDate }}
           </span>
-          <Share :page="glitch.page" />
+          <Share :glitch="glitch" />
         </div>
 
         <h3 v-h3>Difficulté</h3>
