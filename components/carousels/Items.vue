@@ -50,6 +50,7 @@
           :src="activeItem.thumbnail.url | fdgApiUrl"
           max-height="300px"
           class="fdgImage"
+          contain
         />
 
         <template v-if="activeItem.obtain">

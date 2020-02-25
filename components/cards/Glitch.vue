@@ -22,13 +22,15 @@
       </v-list-item>
     </v-list>
 
-    <v-img
-      v-if="glitch.page.thumbnail"
-      :src="glitch.page.thumbnail.url | fdgApiUrl"
-      height="200px"
-      max-height="200px"
-    >
-    </v-img>
+    <nuxt-link :to="glitchUrl">
+      <v-img
+        v-if="glitch.page.thumbnail"
+        :src="glitch.page.thumbnail.url | fdgApiUrl"
+        height="200px"
+        max-height="200px"
+      >
+      </v-img
+    ></nuxt-link>
 
     <v-card-text class="text--primary">
       {{ glitch.page.description }}
@@ -43,7 +45,7 @@
 
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
-          <v-btn v-on="on" :to="glitchUrl" color="primary" raised router>
+          <v-btn v-on="on" color="primary" raised router>
             Voir
           </v-btn>
         </template>
