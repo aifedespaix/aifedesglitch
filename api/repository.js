@@ -1,4 +1,4 @@
-const api = process.env.API_URL
+const api = 'https://aifedesglitch.aifedespaix.com'
 
 export default ($axios) => (resource) => ({
   index() {
