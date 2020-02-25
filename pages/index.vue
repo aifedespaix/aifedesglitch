@@ -31,7 +31,7 @@ export default {
   }),
   async asyncData({ app }) {
     return {
-      lastGlitches: await app.$glitch.filter([{ arg: '_limit', value: 20 }])
+      lastGlitches: await app.$glitch.filter([{ arg: '_limit', value: 10 }])
     }
   }
 }

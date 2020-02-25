@@ -2,8 +2,8 @@
   <v-container fluid>
     <v-row dense>
       <v-col
-        v-for="glitch in glitches"
-        :key="glitches.id"
+        v-for="glitch in glitchesList"
+        :key="glitch.id"
         class="d-flex"
         cols="12"
         xs="12"
@@ -14,8 +14,12 @@
       >
         <Glitch :glitch="glitch" />
       </v-col>
+      <v-col class="d-flex" cols="12" xs="12" sm="6" md="4" lg="3" xl="2">
+        <client-only>
+          <infinite-loading @infinite="loadMore"></infinite-loading>
+        </client-only>
+      </v-col>
     </v-row>
-    <infinite-loading @infinite="loadMore"></infinite-loading>
   </v-container>
 </template>
 
@@ -38,8 +42,19 @@ export default {
   },
   data: () => ({
     page: 0,
-    perPage: 5
+    perPage: 5,
+    loadedGlitches: []
   }),
+  computed: {
+    glitchesList() {
+      const concat = [...this.glitches, ...this.loadedGlitches]
+      return concat
+        .map((e) => e.id)
+        .map((e, i, final) => final.indexOf(e) === i && i)
+        .filter((e) => concat[e])
+        .map((e) => concat[e])
+    }
+  },
   methods: {
     loadMore($state) {
       this.$glitch
@@ -50,9 +65,7 @@ export default {
         ])
         .then((data) => {
           if (data.length) {
-            const merge = (a, b, p) =>
-              a.filter((aa) => !b.find((bb) => aa[p] === bb[p])).concat(b)
-            merge(this.glitches, data)
+            this.loadedGlitches = this.loadedGlitches.concat(data)
             $state.loaded()
           } else {
             $state.complete()

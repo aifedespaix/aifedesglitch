@@ -24,7 +24,6 @@ export default ($axios) => (resource) => ({
   filter(params) {
     let path = ''
     let i = 0
-
     params.forEach((param) => {
       const prefix = i++ === 0 ? '/?' : '&'
       path += `${prefix}${param.arg}=${param.value}`
