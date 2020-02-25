@@ -36,7 +36,9 @@
           <h3 v-h2>Sources</h3>
           <ul>
             <li v-for="source in glitch.sources">
-              <a :href="source.url" target="_blank">{{ source.title }}</a>
+              <a :href="source.url" target="_blank" rel="noopener">
+                {{ source.title }}
+              </a>
               par {{ source.author }}
             </li>
           </ul>

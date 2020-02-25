@@ -6,6 +6,7 @@
           v-on="on"
           :href="tweetUrl"
           target="_blank"
+          rel="noopener"
           color="normal"
           icon
           aria-label="Partager sur Twitter"
@@ -23,6 +24,7 @@
           v-on="on"
           :href="facebookUrl"
           target="_blank"
+          rel="noopener"
           color="normal"
           aria-label="Partager sur Facebook"
           name="Partager sur Facebook"
