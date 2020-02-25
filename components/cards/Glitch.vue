@@ -22,10 +22,11 @@
       </v-list-item>
     </v-list>
 
-    <nuxt-link :to="glitchUrl">
+    <nuxt-link :to="glitchUrl" :name="glitch.title">
       <v-img
         v-if="glitch.page.thumbnail"
         :src="glitch.page.thumbnail.url | fdgApiUrl"
+        :alt="glitch.title"
         height="200px"
         max-height="200px"
       >

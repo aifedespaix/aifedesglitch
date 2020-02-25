@@ -6,7 +6,11 @@
     :clipped-right="!isLargeScreen"
     app
   >
-    <v-app-bar-nav-icon @click.stop="switchNav()" v-if="!isLargeScreen">
+    <v-app-bar-nav-icon
+      @click.stop="switchNav()"
+      v-if="!isLargeScreen"
+      :aria-label="isNavOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
+    >
       <v-icon>$vuetify.icons.menu</v-icon>
     </v-app-bar-nav-icon>
     <Logo />
@@ -42,6 +46,9 @@ export default {
   computed: {
     isLargeScreen() {
       return this.$store.state.layout.isLargeScreen
+    },
+    isNavOpen() {
+      return this.$store.state.layout.nav
     },
     darkTheme: {
       get() {
