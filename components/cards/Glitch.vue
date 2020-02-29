@@ -66,6 +66,7 @@
 
 <script>
 import Share from '~/components/btns/share.vue'
+
 export default {
   components: {
     Share

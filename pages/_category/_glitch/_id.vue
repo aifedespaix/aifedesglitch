@@ -66,6 +66,8 @@
           <Difficulty :difficulty="glitch.difficulty" />
         </div>
 
+        <Reactions :reactions="glitch.reactions" />
+
         <h3 v-h3 v-if="similarGlitchs && similarGlitchs.length">
           Glitchs similaires
         </h3>
@@ -85,9 +87,11 @@ import Glitch from '~/components/cards/Glitch.vue'
 import ItemsCarousel from '~/components/carousels/Items.vue'
 import Difficulty from '~/components/difficulty.vue'
 import Share from '~/components/btns/share.vue'
+import Reactions from '~/components/reactions'
 
 export default {
   components: {
+    Reactions,
     Glitch,
     ItemsCarousel,
     Difficulty,

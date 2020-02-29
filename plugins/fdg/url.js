@@ -1,9 +1,12 @@
+const api = 'https://aifedesglitch.aifedespaix.com'
+const app = 'https://aifedesglitch.com'
+
 export default {
   api(path) {
-    return `${process.env.API_URL}${path}`
+    return `${api}${path}`
   },
   canonic(path) {
-    return `${process.env.BASE_URL}${path}`
+    return `${app}${path}`
   },
   routing: {
     glitch(glitch) {
