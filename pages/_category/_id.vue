@@ -2,7 +2,11 @@
   <v-container v-if="category" fluid class="ma-0 pa-0">
     <v-row class="ma-0 pa-0">
       <v-col class="ma-0 pa-0">
-        <v-parallax :src="category.page.banner.url | fdgApiUrl" height="300">
+        <v-parallax
+          v-if="category.banner"
+          :src="category.banner.url | fdgApiUrl"
+          height="300"
+        >
           <v-row align="center" justify="center">
             <v-col class="text-center" cols="12">
               <h1 v-banner>
